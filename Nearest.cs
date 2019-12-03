@@ -17,7 +17,10 @@ namespace AiCup2019{
                     }
                 }
             }
-            
+            //ToDo: вынести в экстеншены
+            var isEnemyOnTheRight = player.Position.X < Enemy.Value.Position.X;            
+            var isEnemyOnTheLeft = player.Position.X > Enemy.Value.Position.X;
+
             HealthPack = Mine = Weapon = null;
             foreach (var lootBox in game.LootBoxes)
             {
@@ -31,9 +34,21 @@ namespace AiCup2019{
 
                 if (lootBox.Item is Item.HealthPack)
                 {
-                    if (!HealthPack.HasValue || Helpers.DistanceSqr(player.Position, lootBox.Position) < Helpers.DistanceSqr(player.Position, HealthPack.Value.Position))
+                    var hpDistance = Helpers.DistanceSqr(player.Position, lootBox.Position);
+                    if (!HealthPack.HasValue || hpDistance < Helpers.DistanceSqr(player.Position, HealthPack.Value.Position))
                     {
-                        HealthPack = lootBox;
+                        if (isEnemyOnTheRight && player.Position.X < lootBox.Position.X && hpDistance > Helpers.DistanceSqr(player.Position, Enemy.Value.Position))
+                        {
+
+                        }
+                        else if (isEnemyOnTheLeft && player.Position.X > lootBox.Position.X && hpDistance > Helpers.DistanceSqr(player.Position, Enemy.Value.Position))
+                        {
+
+                        }
+                        else
+                        {
+                            HealthPack = lootBox;
+                        }
                     }
                 }
 
