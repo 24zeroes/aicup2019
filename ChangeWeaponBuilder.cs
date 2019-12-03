@@ -4,6 +4,9 @@ namespace AiCup2019{
         public static bool Build(Unit player, Strategy strategy, LootBox? nearestWeapon){
             if (nearestWeapon.HasValue && strategy.Type == StrategyType.WeaponChange)
                 return true;
+
+            if (nearestWeapon.HasValue && ((Item.Weapon)nearestWeapon.Value.Item).WeaponType == WeaponType.AssaultRifle && player.Weapon.HasValue && player.Weapon.Value.Typ == WeaponType.Pistol)
+                return true;
                 
             return false;
         }
