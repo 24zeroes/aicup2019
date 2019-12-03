@@ -16,14 +16,19 @@ namespace AiCup2019{
 
             if (nearest.Enemy.HasValue){
                 var addition = 0;
+                
                 if (player.Position.X > nearest.Enemy.Value.Position.X)
                 {
-                    addition = 6;
+                    addition = 8;
                 }
                 else 
                 {
-                    addition = -6;
+                    addition = -8;
                 }
+
+                if (nearest.Enemy.Value.Weapon.HasValue && nearest.Enemy.Value.Weapon.Value.Typ == WeaponType.RocketLauncher)
+                    addition = addition * 2;
+
                 return new Vec2Double(nearest.Enemy.Value.Position.X + addition, nearest.Enemy.Value.Position.Y);
             }
             
