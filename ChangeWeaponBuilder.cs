@@ -5,9 +5,9 @@ namespace AiCup2019{
             if (nearestWeapon.HasValue && strategy.Type == StrategyType.WeaponChange)
                 return true;
 
-            if (nearestWeapon.HasValue && ((Item.Weapon)nearestWeapon.Value.Item).WeaponType == WeaponType.AssaultRifle && player.Weapon.HasValue && player.Weapon.Value.Typ == WeaponType.Pistol)
+            if (nearestWeapon.HasValue && ((Item.Weapon)nearestWeapon.Value.Item).WeaponType == WeaponType.Pistol && player.Weapon.HasValue && player.Weapon.Value.Typ == WeaponType.AssaultRifle)
                 return true;
-                
+
             return false;
         }
     }
