@@ -29,6 +29,9 @@ namespace AiCup2019{
                 if (nearest.Enemy.Value.Weapon.HasValue && nearest.Enemy.Value.Weapon.Value.Typ == WeaponType.RocketLauncher)
                     addition = addition * 2;
 
+                if (Helpers.DistanceSqr(player.Position, nearest.Enemy.Value.Position) < addition * addition)
+                    addition = addition * -1;
+
                 return new Vec2Double(nearest.Enemy.Value.Position.X + addition, nearest.Enemy.Value.Position.Y);
             }
             
