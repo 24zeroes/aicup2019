@@ -19,11 +19,11 @@ namespace AiCup2019{
                 
                 if (player.Position.X > nearest.Enemy.Value.Position.X)
                 {
-                    addition = 8;
+                    addition = 6;
                 }
                 else 
                 {
-                    addition = -8;
+                    addition = -6;
                 }
 
                 if (nearest.Enemy.Value.Weapon.HasValue && nearest.Enemy.Value.Weapon.Value.Typ == WeaponType.RocketLauncher)
