@@ -32,6 +32,9 @@ namespace AiCup2019{
                 if (Helpers.DistanceSqr(player.Position, nearest.Enemy.Value.Position) < addition * addition)
                     addition = addition * -1;
 
+                if (Helpers.DistanceSqr(player.Position, nearest.Enemy.Value.Position) < 16)
+                    addition = addition * -1;
+
                 return new Vec2Double(nearest.Enemy.Value.Position.X + addition, nearest.Enemy.Value.Position.Y);
             }
             
