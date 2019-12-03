@@ -24,7 +24,7 @@ namespace AiCup2019{
                 level[(int)player.Position.X - 1][(int)player.Position.Y ] == Tile.Platform ||
                 level[(int)player.Position.X + 1][(int)player.Position.Y] == Tile.Platform;
         }
-        public static bool CanShoot(this Unit player, Unit target, Tile[][] tiles){
+        public static bool CanShoot(this Unit player, Unit target, Tile[][] tiles, Nearest nearest){
             if (player.Weapon.HasValue && player.Weapon.Value.Typ == WeaponType.RocketLauncher)
             {
                 if (tiles[(int)(player.Position.X + 1)][(int)(player.Position.Y)] == Tile.Wall)
@@ -34,7 +34,7 @@ namespace AiCup2019{
                     return false;
             }
 
-            if (Helpers.DistanceSqr(player.Position, target.Position) > 500)
+            if (Helpers.DistanceSqr(player.Position, target.Position) > 300 && nearest.Enemy.Value.Health > 30)
                 return false;
 
             return true;
