@@ -6,11 +6,11 @@ namespace AiCup2019{
             {
                 if (player.Position.X > target.X)
                 {
-                    return  - 5;
+                    return  - 7;
                 }
                 else
                 {
-                    return  + 5;
+                    return  + 7;
                 }
                 
             }
