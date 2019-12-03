@@ -15,7 +15,7 @@ namespace AiCup2019{
             action.Jump = jump;
             action.JumpDown = jump == false;
             action.Aim = aim;
-            action.Shoot = player.CanShoot(nearest.Enemy.Value, game.Level.Tiles);
+            action.Shoot = player.CanShoot(nearest.Enemy.Value, game.Level.Tiles, nearest);
             action.SwapWeapon = ChangeWeaponBuilder.Build(player, strategy, nearest.Weapon);
             action.PlantMine = false;
 
