@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
 
 namespace AiCup2019
 {
@@ -43,7 +42,7 @@ namespace AiCup2019
                         actions.Add(unit.Id, myStrategy.GetAction(unit, playerView.Game, debug));
                     }
                 }
-                new Model.PlayerMessageGame.ActionMessage(actions).WriteTo(writer);
+                new Model.PlayerMessageGame.ActionMessage(new Model.Versioned(actions)).WriteTo(writer);
                 writer.Flush();
             }
         }

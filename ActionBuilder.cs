@@ -18,7 +18,7 @@ namespace AiCup2019{
             action.Shoot = player.CanShoot(nearest.Enemy.Value, game.Level.Tiles, nearest);
             action.SwapWeapon = ChangeWeaponBuilder.Build(player, strategy, nearest.Weapon);
             action.PlantMine = false;
-
+            action.Reload = false;
             return action;
         }
     }
