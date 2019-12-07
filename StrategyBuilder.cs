@@ -5,7 +5,7 @@ namespace AiCup2019{
     public static class StrategyBuilder{
         public static Strategy Build(Unit player, Cache cache, Game game){
 
-            if (player.Health < 55 && game.LootBoxes.Where(x => x.Item is Item.HealthPack).Any())
+            if (player.Health < 89 && game.LootBoxes.Where(x => x.Item is Item.HealthPack).Any())
                 return new Strategy {Type = StrategyType.Heal};
 
             if (player.Weapon.HasValue == false)
