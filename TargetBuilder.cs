@@ -14,9 +14,15 @@ namespace AiCup2019{
                 return cache.Peak;
             }
 
+            var addition = 0;
+            
+            if (strategy.Type == StrategyType.GettinCloser)
+            {
+
+                return new Vec2Double(nearest.Enemy.Value.Position.X + addition, nearest.Enemy.Value.Position.Y);
+            }
+
             if (nearest.Enemy.HasValue){
-                var addition = 0;
-                
                 if (player.Position.X > nearest.Enemy.Value.Position.X)
                 {
                     addition = 6;
@@ -38,7 +44,7 @@ namespace AiCup2019{
                 return new Vec2Double(nearest.Enemy.Value.Position.X + addition, nearest.Enemy.Value.Position.Y);
             }
             
-            return new Vec2Double(0, 0);
+            return new Vec2Double(nearest.Enemy.Value.Position.X, nearest.Enemy.Value.Position.Y);
         }
     }
 }

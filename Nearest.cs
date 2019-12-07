@@ -24,7 +24,7 @@ namespace AiCup2019{
             HealthPack = Mine = Weapon = null;
             foreach (var lootBox in game.LootBoxes)
             {
-                if (lootBox.Item is Item.Weapon && ((Item.Weapon)lootBox.Item).WeaponType != WeaponType.RocketLauncher) //ToDo: убрать исключение РЛ
+                if (lootBox.Item is Item.Weapon)
                 {
                     if (!Weapon.HasValue || Helpers.DistanceSqr(player.Position, lootBox.Position) < Helpers.DistanceSqr(player.Position, Weapon.Value.Position))
                     {

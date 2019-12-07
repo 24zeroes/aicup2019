@@ -5,6 +5,7 @@ namespace AiCup2019{
         Kill = 1,
         Heal = 2,
         Climb = 3,
-        WeaponChange = 4
+        WeaponChange = 4,
+        GettinCloser = 5,
     }
 }

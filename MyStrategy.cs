@@ -11,9 +11,14 @@ namespace AiCup2019
         {
             if (_cache == null)
                 _cache = new Cache(unit, game);
-            var strategy = StrategyBuilder.Build(unit, _cache, game);
-    
-            UnitAction action = ActionBuilder.Build(strategy, unit, game, _cache);
+
+            var nearest = new Nearest(unit, game);
+
+            _cache.UpdateDistance(unit, nearest.Enemy.Value);
+
+            var strategy = StrategyBuilder.Build(unit, _cache, game, nearest);
+            _cache.PrevStrategy = strategy;
+            UnitAction action = ActionBuilder.Build(strategy, unit, game, _cache, nearest);
             action.Log(debug, unit, strategy);
             return action;
         }

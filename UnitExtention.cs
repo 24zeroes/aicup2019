@@ -52,7 +52,7 @@ namespace AiCup2019{
                 }
             }
             catch(Exception e){
-                return false;
+                return true;
             }
 
             return true;
